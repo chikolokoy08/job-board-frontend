@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 export default function PostJob() {
-  const [form, setForm] = useState({ title: '', description: '', company_name: '', location: '', email: 'jobboard@mail.com', link: '' });
+  const [form, setForm] = useState({ title: '', description: '', company_name: '', location: '', email: '', link: '' });
   const [submitted, setSubmitted] = useState(false);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -10,7 +11,7 @@ export default function PostJob() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const res = await fetch('/api/jobs/add', {
+    const res = await fetch(`${apiUrl}/api/jobs/add`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),

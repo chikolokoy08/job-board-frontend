@@ -7,12 +7,13 @@ export default function JobModeration({ mode }: { mode: 'approve' | 'spam' }) {
   const token = searchParams.get('token');
   const [job, setJob] = useState<any>(null);
   const [status, setStatus] = useState<string>('');
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const process = async () => {
       if (!token) return;
 
-      const res = await fetch(`/api/jobs/${mode}`, {
+      const res = await fetch(`${apiUrl}/api/jobs/${mode}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token }),
