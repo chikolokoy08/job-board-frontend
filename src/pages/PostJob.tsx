@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function PostJob() {
-  const [form, setForm] = useState({ title: 'Junior Developer', description: '', company_name: 'JOBOARD Inc', location: 'WFH/Remote', email: 'jobboard@mail.com', link: 'https://resources.workable.com/junior-developer-job-description' });
+  const [form, setForm] = useState({ title: '', description: '', company_name: '', location: '', email: 'jobboard@mail.com', link: '' });
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e: any) => {

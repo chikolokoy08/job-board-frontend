@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://job-board-backend-es8n.onrender.com',
         changeOrigin: true,
         secure: false,
       },
